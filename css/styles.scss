@@ -1,0 +1,399 @@
+@import 'main';
+@import 'fonts';
+
+/* Colors */
+$blue : #004d92;
+$gris : #787878; 
+$rouge : #ef263a;
+$alpha : 0.8;
+
+
+@mixin border-box {
+	width:	100%;
+	box-sizing: border-box;
+} 
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+      }
+
+ /* Image retina  */
+
+ @mixin background-image-retina($file, $type, $width, $height) {
+  background-image: url($file + '.' + $type);
+ 
+  @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+    & {
+      background-image: url($file + '@2x.' + $type);
+      -webkit-background-size: $width $height;
+    }
+  }
+}
+
+/*  General  */
+body {background: url(../img/bg_connexion.jpg) no-repeat 0 0;
+	@include background-image-retina('../img/bg_connexion', 'jpg', 320px, auto);
+}
+
+
+section.wrapper {
+	@include border-box;
+	width: 320px;
+	height:568px;
+	display: block;
+	overflow: hidden; 
+	position: absolute; 
+	margin-top:0; 
+	left: 0; 
+	border:1px solid $gris;
+
+}
+
+.page {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+}
+
+.page-active {right:0; left:0;}
+.page-next {right: 100%;}
+.page-prev {left: 100%;}
+
+header {
+	width: 320px;
+	height: 35px; 
+	background: #fff;
+	position: absolute;
+	top: 0px;
+}
+header:after {
+	content:"";background: url(../img/ombre_top.png) repeat-x 0 0 transparent; 
+	display: block; 
+	width:320px;
+	height: 14px; 
+	top:35px; 
+	position: absolute}
+
+
+
+footer {
+	width: 320px;
+	height: 42px;
+	line-height: 42px; 
+	background: #fff; 
+	position: absolute; 
+	bottom: 0; 
+	left: 0;
+	text-align: center;
+	color:$gris;
+}
+footer:before {
+	content:"";
+	background: url(../img/ombre_bottom.png) repeat-x 0 bottom transparent; 
+	display: block; 
+	width:100%; 
+	height: 26px; 
+	top:-26px; 
+	position: absolute}
+
+.overlay {
+	display:none;
+	width:100%;
+	height: 100% !important;
+	background: rgba($gris, 1);
+	z-index:100;
+	position: absolute;
+	top: 0;
+	height: 0;
+}
+
+.blur {display:none;
+	width:100%;
+	height: 100% !important;
+	background: rgba($gris, 1);
+	z-index:96;
+	position: absolute;
+	top: 0;
+	height: 0;
+	 -webkit-filter: blur(10px);
+	filter: blur(10px);
+}
+
+/*    Typo */
+.connexion{
+	margin-top: 110px;
+}
+
+.mot_de_passe {
+	margin-top: 78px;
+}
+
+p {
+	color: $blue;
+	font-size: 20px;
+	
+	@include apple_font;
+}
+
+/*  Content  */
+section.content {
+	padding: 0 21px;
+}
+
+/*  Input identifiant */
+.fake_input {
+	@include border-box;
+	height: 33px;
+	background: rgba(218,214,204, 0.7);
+	border:none;
+	position:relative;
+	border-radius: 4px;
+}
+
+button{border:none;}
+
+.fake_input input[type=number],  .fake_input input[type=password] {
+	width: 85%;
+	background:none;
+	border:none;
+	font-size:16px;
+	height: 33px;
+	line-height:33px;
+	padding: 0 6px;
+	position: relative;
+	color:$blue;
+}
+::-webkit-input-placeholder { color:$gris;}
+
+.fake_input > .btn_help {
+	position: absolute;
+	top: 4px; right: 4px;
+	display: block;
+	width: 23px;
+	height:	23px;
+	background: url(../img/help.png) no-repeat 0 0;
+	@include background-image-retina('../img/help', 'png', 23px, 23px);
+}
+
+
+/*  Boutons  */
+.btn_zone {
+	position: absolute;
+	bottom: 100px;
+	width:	276px;
+
+}
+
+button.btn_submit, button.btn_erase {
+	@include border-box;
+	background:rgba(255,255,255,0.4);
+	text-align:left;
+	font-size:16px;
+	padding: 0px 6px;
+	position: relative;
+	height: 50px;
+	line-height:50px;
+}
+
+/*  Grid2 : width: 50%;   */
+button.btn_submit.grid2, button.btn_erase.grid2 {
+	width: 48%;
+	float: left;
+}
+.grid2:first-child {margin-right: 4%;}
+
+button.btn_submit {
+	border:1px solid rgba($blue, $alpha);
+	color: $blue;
+	
+}
+
+button.btn_submit > .submit {
+	display: block;
+	width: 44px;
+	height:44px;
+	background:url(../img/submit.png) no-repeat 50% 50%;
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	@include background-image-retina('../img/submit', 'png', 39px, 40px);
+}
+
+button.btn_erase {
+	border:1px solid rgba($gris, $alpha);
+	color: $gris;
+
+}
+
+button.btn_erase > .erase{
+	display: block;
+	width: 44px;
+	height:44px;
+	background:url(../img/erase.png) no-repeat 50% 50%;
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	@include background-image-retina('../img/erase', 'png', 39px, 40px);
+}
+
+
+header button.btn_close {
+	display: block;
+	width: 44px;
+	height:37px;
+	background:url(../img/close_blue.png) no-repeat 5px 50%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	@include background-image-retina('../img/close_blue', 'png', 15px, 15px);
+
+}
+
+header	button.btn_back {
+	display: block;
+	width: 44px;
+	height:37px;
+	background:url(../img/back.png) no-repeat 5px 50%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	@include background-image-retina('../img/back', 'png', 7px, 13px);
+}
+
+/*  Clavier virtuel  */
+.clavier_virtuel{
+	display: block;
+	width:277px;
+	height: 208px;
+	margin-top: 10px;
+}
+
+.clavier_virtuel img {max-width: 100%; cursor: pointer;}
+
+/*  Help  */
+.aide{
+	display: block;
+	position:absolute;
+	bottom: -100%;
+	background:#fff;
+	color: $rouge;
+	z-index:150;
+	height:70%;
+}
+
+.aide.on, .aide.off {
+	position:absolute;
+	bottom: 0;
+}
+
+.aide header {
+	@include border-box; 
+	text-align: center;
+	position:relative;
+	height:auto;
+	padding: 12px 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.aide header:after {
+	content:"";
+	background: url(../img/ombre_bottom.png) repeat-x 0 bottom transparent; 
+	display: block; 
+	width:100%; 
+	height: 26px; 
+	top:-26px; 
+	position: absolute}
+
+.aide section {
+padding: 33px;
+}
+
+.aide p {
+	color:#272727;
+	font-size:14px;
+}
+
+.aide a {
+	color:$rouge;
+	font-weight:14px;
+	text-decoration:none;
+}
+
+.aide .btn_close {
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 44px;
+	height:44px;
+	background:url(../img/close_red.png) no-repeat 50% 50%;
+	@include background-image-retina('../img/close_red', 'png', 13px, 13px);
+
+}
+
+/*  Error  */
+.error {
+	display: block; 
+	position: absolute; 
+	top: -100%; 
+	background: rgba($rouge, 0.8); color: #fff;@include border-box; padding: 21px; font-size: 14px;
+	z-index: 200;
+}
+
+.error.on, .error.off {
+	top: 0;
+}
+
+.error .btn_close{
+	display:block;
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	width: 44px;
+	height:44px;
+	background:url(../img/close_white.png) no-repeat 50% 50%;
+	@include background-image-retina('../img/close_white', 'png', 16px, 16px);
+
+}
+
+/**********  Medias queries  ************/
+
+@media only screen and (min-width: 320px) {
+
+	/*  Hauteur Wrapper Iphone 3,4,4S !important */
+	section.wrapper {height:480px;}
+
+	/* Position texte   */
+	.connexion {margin-top: 110px;}
+	.mot_de_passe {margin-top: 48px;}
+
+	/* Position boutons   */
+	.connexion .btn_zone {bottom: 120px;}
+	.mot_de_passe .btn_zone {bottom: 56px;}
+}
+
+/* Retina */
+@media (-webkit-min-device-pixel-ratio: 2) {
+	body {background-size:cover;}
+
+}
+
+/* Iphone 5 */
+@media (device-height : 568px) and (device-width : 320px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	/*  Hauteur Wrapper Iphone 5 !important */
+	section.wrapper {height:568px;}
+
+	/* Position texte   */
+	.connexion {margin-top: 110px;}
+	.mot_de_passe {margin-top: 78px;}
+
+	/* Position boutons   */
+	.connexion .btn_zone {bottom: 120px;}
+	.mot_de_passe .btn_zone {bottom: 90px;}
+}

@@ -1,0 +1,21 @@
+@mixin apple_font {
+	font: 17px/21px -apple-system-font;
+}
+
+@mixin apple_header_font {
+
+	font: 17px/21px -apple-system-font;
+	font-weight:1bold;
+	
+}
+
+@mixin large_apple_font {
+
+	font: 42px/42px -apple-system-font;
+	font-weight:100;
+	
+}
+
+@mixin light_apple_font {
+	font-weight:100;
+}

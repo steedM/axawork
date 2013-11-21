@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+    
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="">
+
+
+        <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+        <!--
+        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+        -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+
+        <section class="wrapper">
+
+             <div class="page" id="etape2">
+                <header>
+                    <button class="btn_back" ></button>
+                </header>
+            
+                <section class="content mot_de_passe">
+    
+                    <p><strong>Pouvez-vous</strong><br>
+                        entrer votre mot de passe ?
+                    </p>
+    
+                    <div class="fake_input">
+                        <input type="password" class="" placeholder="">
+                        <button class="btn_help"></button>
+                    </div>
+
+                    <div class="clavier_virtuel">
+                        <img src="img/clavier@2x.png" />
+                    </div>
+
+                    <div class="btn_zone">
+                        <button class="btn_erase grid2" value="" >
+                            Effacer <span class="erase"></span>
+                        </button>
+        
+                        <button class="btn_submit grid2" value="" >
+                            Valider <span class="submit"></span>
+                        </button>
+                    </div>
+                    
+                </section>
+    
+                <section id="aide" class="aide">
+                    <header>Aide</header>
+                    <section>
+                        <p>Votre identitifiant internet est composé de 8 à 10 chiffres. Vous pouvez le retrouver sur la droite de la plupart des courriers que vous recevez de la part d’AXA.</p>
+    
+                        <a>Vous avez oublié votre identifiant ?</a>
+                    </section>
+                    <button class="btn_close"></button>
+                </section>
+
+                <section id="" class="error">
+                    Une erreur est survenue durant  le rapprochement de votre compte. Veuillez ré-essayer... 
+                    <button class="btn_close"></button>
+                </section>
+    
+                <footer>
+                    Connexion 2/2
+                </footer>
+            </div>
+        </section>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="js/min/helper.min.js"></script>
+        <script src="js/min/main.min.js"></script>
+    </body>
+</html>
